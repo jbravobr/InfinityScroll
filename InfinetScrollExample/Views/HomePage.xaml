@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="InfinetScrollExample.Views.HomePage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infinite="clr-namespace:InfinetScrollExample;assembly=InfinetScrollExample"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             Title="Home"
+             prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.Content>
+        <StackLayout>
+            <infinite:InfiniteListView ItemsSource="{Binding Numbers}"
+                                       LoadMoreCommand="{Binding LoadMoreItens}"
+                                       RowHeight="66">
+                <infinite:InfiniteListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="18" VerticalOptions="FillAndExpand">
+                                <Label FontAttributes="Bold"
+                                       FontSize="22"
+                                       Text="{Binding Description}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </infinite:InfiniteListView.ItemTemplate>
+            </infinite:InfiniteListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
